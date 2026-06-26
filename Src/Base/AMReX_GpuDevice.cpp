@@ -25,7 +25,7 @@
 #if __has_include(<nvtx3/nvtx3.hpp>)
 #  include <nvtx3/nvtx3.hpp>
 #elif __has_include(<nvtx3/nvToolsExt.h>)
-#  include <nvtx3/nvToolsExt.h>
+//#  include <nvtx3/nvToolsExt.h>
 #else
 #  include <nvToolsExt.h>
 #endif
@@ -1362,7 +1362,7 @@ void
 Device::profilerStart ()
 {
 #ifdef AMREX_USE_CUDA
-    AMREX_GPU_SAFE_CALL(cudaProfilerStart());
+    // AMREX_GPU_SAFE_CALL(cudaProfilerStart());
 #elif (defined(AMREX_USE_HIP) && defined(AMREX_USE_ROCTX))
     roctxProfilerResume(0);
 #endif
@@ -1373,7 +1373,7 @@ void
 Device::profilerStop ()
 {
 #ifdef AMREX_USE_CUDA
-    AMREX_GPU_SAFE_CALL(cudaProfilerStop());
+    // AMREX_GPU_SAFE_CALL(cudaProfilerStop());
 #elif (defined(AMREX_USE_HIP) && defined(AMREX_USE_ROCTX))
     roctxProfilerPause(0);
 #endif

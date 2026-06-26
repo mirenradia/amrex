@@ -1040,7 +1040,7 @@ template <std::integral N, typename T >
 T ExclusiveSum (N n, T const* in, T * out, RetSum a_ret_sum = retSum)
 {
     if (n <= 0) { return 0; }
-#if defined(AMREX_USE_CUDA)
+#if 0// defined(AMREX_USE_CUDA)
     T in_last = 0;
     if (a_ret_sum) {
         Gpu::dtoh_memcpy_async(&in_last, in+(n-1), sizeof(T));

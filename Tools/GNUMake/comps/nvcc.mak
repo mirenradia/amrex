@@ -110,7 +110,7 @@ endif
 
 ifeq ($(DEBUG),TRUE)
 ifeq ($(DEBUG_OPT_LEVEL),0)
-  NVCC_FLAGS += -g -G
+  NVCC_FLAGS += -g #-G
 else
   NVCC_FLAGS += -g -lineinfo --ptxas-options=-O$(DEBUG_OPT_LEVEL)
 endif
@@ -163,7 +163,7 @@ endif
 endif
 # warning #20092-D: a __device__ variable cannot be directly written in a host function
 ifeq ($(nvcc_diag_error),1)
-  NVCC_FLAGS += --display-error-number --diag-error 20092
+  # NVCC_FLAGS += --display-error-number --diag-error 20092
 endif
 
 CXXFLAGS = $(CXXFLAGS_FROM_HOST) $(NVCC_FLAGS) $(NVCC_ARCH_COMPILE_FLAGS) -x cu -c

@@ -485,7 +485,7 @@ T parser_math_jn_device (int a, T b)
 #elif defined(AMREX_USE_SYCL)
     return sycl::ext::intel::math::jn(a, b);
 #else
-    return ::jn(a,b);
+    return 0; //::jn(a,b);
 #endif
 }
 #endif
@@ -524,7 +524,7 @@ T parser_math_yn_device (int a, T b)
 #elif defined(AMREX_USE_SYCL)
     return sycl::ext::intel::math::yn(a, b);
 #else
-    return ::yn(a,b);
+    return 0; //::yn(a,b);
 #endif
 }
 #endif

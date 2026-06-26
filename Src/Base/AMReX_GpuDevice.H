@@ -233,7 +233,7 @@ public:
 #elif defined(AMREX_USE_SYCL)
     static AMREX_EXPORT constexpr int warp_size = AMREX_SYCL_SUB_GROUP_SIZE;
 #else
-    static AMREX_EXPORT constexpr int warp_size = AMREX_HIP_OR_CUDA(64,32);
+    static AMREX_EXPORT constexpr int warp_size = AMREX_HIP_OR_CUDA(64,64);
 #endif
 
     static unsigned int maxBlocksPerLaunch () noexcept { return max_blocks_per_launch; }
